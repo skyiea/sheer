@@ -1,0 +1,32 @@
+.wrapper {
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    top: 20px;
+}
+
+#text {
+    border-style: ridge;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    top: 20px;
+    text-align: justify;
+    box-sizing: border-box;
+}
+input {
+    border-style: ridge;
+    width: 100%;
+    padding: 10px;
+    position: relative;
+    top: 70px;
+    text-align: justify;
+}
+#time_r {
+    margin-left: inherit;
+    border-style: ridge;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
