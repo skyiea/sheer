@@ -1,9 +1,11 @@
-var time_el, out_text, start_time, timer_instance,
+var time_el, out_text, start_time, timer_instance,inp_text, RandElement, state,
 
     initDOM_Elements = function () {
+        document.getElementById("time_r").innerHTML="5";
         time_el = document.getElementById('time_r');
         out_text = document.getElementById('inp');
     },
+
     initEvents = function () {
         out_text.addEventListener('keypress', function (e) {
             if (e.keyCode === 13) {
@@ -22,13 +24,12 @@ var time_el, out_text, start_time, timer_instance,
             window.clearInterval(timer_handler);
         };
     },
-    state = 'idle',
 
     result = function () {
         var result_speed, message,
-            inp_text = document.getElementById('text').innerHTML,
             user_text = out_text.value;
 
+        inp_text = document.getElementById("text").innerHTML;
         timer_instance.stop();
 
         if (inp_text === user_text) {
@@ -44,7 +45,7 @@ var time_el, out_text, start_time, timer_instance,
         }
     },
 
-    timer = function () {
+    timerFunction = function () {
         var new_time,
             previous_time = Number(time_el.innerHTML);
 
@@ -70,7 +71,9 @@ var time_el, out_text, start_time, timer_instance,
 
     init = function () {
         state = 'prepare';
-        timer_instance = new Timer(timer, 1000);
+        timer_instance = new Timer(timerFunction, 1000);
+        RandElement = texts[Math.floor(Math.random()*(texts.length))];
+        document.getElementById('text').innerHTML = RandElement;
         initDOM_Elements();
         initEvents();
         timer_instance.start();

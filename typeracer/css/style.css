@@ -32,6 +32,7 @@ input {
 #time_r {
     width: 50px;
     height: 50px;
+    margin-top: -90px;
     margin-left: 10px;
     border-style: ridge;
 
