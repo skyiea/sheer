@@ -7,11 +7,11 @@ body {
 .wrapper {
     width: 500px;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 20px auto 0;
 }
 
-#text,
-input {
+#source_text,
+#input_text {
     width: 100%;
     padding: 10px;
     border-style: ridge;
@@ -21,19 +21,17 @@ input {
     box-sizing: border-box;
 }
 
-#text {
-    margin-top: 20px;
-}
-
-input {
+#input_text {
     margin-top: 50px;
 }
 
 #time_r {
+    position: absolute;
+    top: 65px;
+    left: 10px;
+
     width: 50px;
     height: 50px;
-    margin-top: -90px;
-    margin-left: 10px;
     border-style: ridge;
 
     text-align: center;
