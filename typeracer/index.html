@@ -2,14 +2,113 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
-        <link rel="stylesheet" type="text/css" href="css/style.css"/>
-        <script src="js/main.js"></script>
+        <!--<link rel="stylesheet" type="text/css" href="css/style.css"/>-->
+        <!--<script src="js/main.js"></script>-->
     </head>
     <body>
-        <div class="wrapper">
-            <div id="source_text"></div>
-            <input id="input_text" type="text" disabled="disabled"/>
-        </div>
-        <div id="time_r"></div>
+        <!--<div class="wrapper">-->
+            <!--<div id="source_text"></div>-->
+            <!--<input id="input_text" type="text" disabled="disabled"/>-->
+        <!--</div>-->
+        <!--<div id="time_r"></div>-->
+        <script>
+            var Creature = function (age) {
+                // this = {};
+
+                if (age !== undefined) {
+                    this.age = age;
+                }
+
+                // return this;
+            };
+
+            Creature.prototype.age = 0;
+
+            Creature.prototype.setAge = function (new_age) {
+                this.age = new_age;
+            };
+
+            Creature.prototype.clone = function () {
+                return new this.constructor(this.age);
+            };
+
+            var creature1 = new Creature(),
+                creature2 = new Creature(18),
+                creature3 = creature2.clone();
+
+            var Animal = function (iq, age) {
+                Creature.call(this, age);
+
+                if (iq !== undefined) {
+                    this.iq = iq;
+                }
+            };
+
+            Animal.prototype.iq = 0;
+
+            Animal.prototype.setIq = function (new_iq) {
+                this.iq = new_iq;
+            };
+
+            Animal.prototype.clone = function () {
+                return new this.constructor(this.iq, this.age);
+            };
+
+            Animal.prototype.__proto__ = Creature.prototype;
+
+            var Human = function (name, age, iq) {
+                Animal.call(this, iq, age); // this = new Creature(age);
+
+                if (name !== undefined) {
+                    this.name = name;
+                }
+            };
+
+            Human.prototype.name = 'Nobody';
+            Human.prototype.__proto__ = Animal.prototype;
+
+            Human.prototype.clone = function () {
+                return new this.constructor(this.name, this.age, this.iq);
+            };
+
+            var human1 = new Human('Igor', 20, 130);
+        </script>
+        <script>
+            var getData1 = new Promise(function (resolve) {
+                window.setTimeout(function () {
+                    resolve({ value: 5 });
+                }, 1000);
+            });
+
+            var getData2 = new Promise(function (resolve) {
+                window.setTimeout(function () {
+                    resolve({ value: 10 });
+                }, 1500);
+            });
+
+            Promise.all([ getData1, getData2 ]).then(function (data) {
+                console.log('Whooray!', data);
+            });
+
+            var promise_DCL = new Promise(function (resolve) {
+                document.addEventListener('DOMContentLoaded', resolve);
+            });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                console.log('DCL!');
+
+                document.addEventListener('DOMContentLoaded', function () {
+                    console.log('DCL #2');
+                });
+            });
+
+            var foo = function () {
+                console.log('foo function');
+
+                var body = document.body;
+            };
+
+            window.setTimeout(foo, 1000);
+        </script>
     </body>
 </html>
