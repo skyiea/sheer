@@ -6,13 +6,13 @@ module.exports = function (grunt) {
         babel: {
             dist: {
                 files: {
-                    'app/build/build.js': 'app/js/main.js'
+                    'build/build.js': 'app/js/main.js'
                 }
             }
         },
 
         watch: {
-            files: [ 'app/js/*.js' ],
+            files: [ 'Gruntfile.js', 'app/js/*.js' ],
             tasks: [ 'default' ]
         }
     });
