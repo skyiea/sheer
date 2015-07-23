@@ -8,7 +8,7 @@ module.exports = {
     context: app_path,
     entry: {
 //        outcomes: './js/outcomes.cjsx'
-        slider: './js/slider/slider.cjsx'
+        slider: './js/slider/slider-init.cjsx'
     },
     output: {
         path: build_path,

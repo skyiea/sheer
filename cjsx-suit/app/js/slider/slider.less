@@ -1,0 +1,37 @@
+#slider {
+    @slider-height: 300px;
+    @edge-value: 50px;
+    @btn-offset: -10px - @edge-value;
+
+    position: relative;
+
+    width: 400px;
+    height: @slider-height;
+    margin: 200px auto 0;
+    border: 1px dashed #ccc;
+
+    background-size: cover;
+
+    .btn {
+        position: absolute;
+        top: @slider-height / 2 - @edge-value / 2;
+
+        width: @edge-value;
+        height: @edge-value;
+
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        line-height: @edge-value;
+
+        background-color: #808080;
+    }
+
+    .left-btn {
+        left: @btn-offset;
+    }
+
+    .right-btn {
+        right: @btn-offset;
+    }
+}
