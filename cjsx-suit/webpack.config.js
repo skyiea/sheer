@@ -7,7 +7,8 @@ var app_path    = __dirname + '/app',
 module.exports = {
     context: app_path,
     entry: {
-        build: './js/main.cjsx'
+//        outcomes: './js/outcomes.cjsx'
+        slider: './js/slider/slider.cjsx'
     },
     output: {
         path: build_path,

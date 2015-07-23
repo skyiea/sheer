@@ -12,20 +12,20 @@ module.exports = function (grunt) {
 
         clean: [ build_path + '*' ],
 
-        copy: {
-            main: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: app_path,
-                        src: [
-                            'json/**'
-                        ],
-                        dest: build_path
-                    }
-                ]
-            }
-        },
+//        copy: {
+//            main: {
+//                files: [
+//                    {
+//                        expand: true,
+//                        cwd: app_path,
+//                        src: [
+//                            'json/**'
+//                        ],
+//                        dest: build_path
+//                    }
+//                ]
+//            }
+//        },
 
         webpack: {
             options: require('./webpack.config'),
@@ -38,6 +38,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', [ 'clean', 'webpack', 'copy' ]);
+    grunt.registerTask('build', [ 'clean', 'webpack' ]);
     grunt.registerTask('default', [ 'build', 'watch' ]);
 };
