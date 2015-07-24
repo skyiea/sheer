@@ -2,7 +2,7 @@ React       = require 'React'
 lodash      = require 'lodash'
 superagent  = require 'superagent'
 
-App = React.createClass
+Outcomes = React.createClass
     _handleOutcomes: (json_response) ->
         data = JSON.parse json_response
 
@@ -49,4 +49,4 @@ App = React.createClass
             when 'idle', 'loading' then <div>Loading outcomes..</div>
             when 'load' then <div>{this.state.outcomes}</div>
 
-module.exports = App
+module.exports = Outcomes

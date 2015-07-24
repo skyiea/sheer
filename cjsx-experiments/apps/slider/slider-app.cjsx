@@ -1,5 +1,5 @@
 React   = require 'React'
-Slider  = require './Slider'
+Slider  = require './slider/Slider'
 
 images = [
     'http://s3.amazonaws.com/rapgenius/cats-animals-kittens-background.jpg',

@@ -1,5 +1,5 @@
 module.exports = function (grunt) {
-    var app_path = 'app/',
+    var app_path = 'apps/',
         build_path = 'public/';
 
     grunt.loadNpmTasks('grunt-contrib-clean');

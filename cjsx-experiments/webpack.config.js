@@ -1,14 +1,14 @@
 var webpack             = require('webpack'),
     ExtractTextPlugin   = require('extract-text-webpack-plugin');
 
-var app_path    = __dirname + '/app',
+var app_path    = __dirname + '/apps',
     build_path  = 'public/';
 
 module.exports = {
     context: app_path,
     entry: {
-//        outcomes: './js/outcomes.cjsx'
-        slider: './js/slider/slider-init.cjsx'
+        outcomes: './outcomes/outcomes-app.cjsx',
+        slider  : './slider/slider-app.cjsx'
     },
     output: {
         path: build_path,
