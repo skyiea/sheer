@@ -12,14 +12,22 @@ Todo = React.createClass
             @state.list.push
                 value   : @refs.input.getDOMNode().value
                 time    : Date.now()
+                selected: false
 
             @setState
                 input_text  : ''
                 list        : @state.list
 
-    _removeListItem: (index) ->
-        @state.list.splice index, 1
+    _removeListItem: (list_item) ->
+        @state.list.splice @state.list.indexOf(list_item), 1
         @setState list: @state.list # для перезапуску render'a необхідно пропустити новий list через setState метод
+
+    _removeSelected: ->
+        @setState list: @state.list.filter (list_item) -> not list_item.selected
+
+    _toggleListItemSelection: (list_item) ->
+        list_item.selected = not list_item.selected
+        @setState list: @state.list
 
     getInitialState: ->
         input_text  : ''
@@ -40,11 +48,20 @@ Todo = React.createClass
             {
                 @state.list.map (list_item, index) => # => на відміну від -> зберігає контекст this
                     <div key={index} className="list-item">
+                        <div    className="btn select-btn"
+                                data-selected={list_item.selected || null}
+                                onClick={=> @_toggleListItemSelection list_item}>o</div>
                         <div className="name">{list_item.value}</div>
-                        <div    className="remove-btn"
-                                onClick={=> @_removeListItem index}>X</div>
+                        <div    className="btn remove-btn"
+                                onClick={=> @_removeListItem list_item}>X</div>
                         <div className="date">{new Date(list_item.time).toGMTString()}</div>
                     </div>
+            }
+            {
+                <button     className="remove-selected-btn"
+                            onClick={@_removeSelected}>
+                        Видалити обрані
+                </button> if @state.list.some (list_item) -> list_item.selected
             }
             </div>
         </div>

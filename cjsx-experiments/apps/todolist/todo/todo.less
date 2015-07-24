@@ -22,7 +22,7 @@
         .list-item {
             @item-height: 30px;
             @date-height: 20px;
-            @remove-btn-width: @item-height;
+            @btn-width: @item-height;
 
             position: relative;
 
@@ -35,27 +35,39 @@
             }
 
             .name {
-                display: inline-block;
-                padding-right: @remove-btn-width;
+                margin-left: @btn-width;
+                margin-right: @btn-width;
 
                 font-size: 18px;
                 line-height: @item-height;
             }
 
-            .remove-btn {
+            .btn {
                 position: absolute;
                 top: 0;
-                right: 0;
 
-                width: @remove-btn-width;
+                width: @btn-width;
 
                 font-size: 24px;
                 font-family: monospace;
-                color: brown;
                 line-height: @item-height;
                 text-align: center;
 
                 cursor: pointer;
+
+                &.select-btn {
+                    left: 0;
+
+                    &[data-selected] {
+                        color: #3333ff;
+                    }
+                }
+
+                &.remove-btn {
+                    right: 0;
+
+                    color: brown;
+                }
             }
 
             .date {
@@ -69,6 +81,10 @@
                 line-height: @date-height;
                 color: blue;
             }
+        }
+
+        .remove-selected-btn {
+            font-size: 16px;
         }
     }
 }
