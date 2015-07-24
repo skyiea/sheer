@@ -7,8 +7,8 @@ var app_path    = __dirname + '/apps',
 module.exports = {
     context: app_path,
     entry: {
-        outcomes: './outcomes/outcomes-app.cjsx',
-        slider  : './slider/slider-app.cjsx',
+        //outcomes: './outcomes/outcomes-app.cjsx',
+        //slider  : './slider/slider-app.cjsx',
         todo    : './todolist/todo-app.cjsx'
     },
     output: {

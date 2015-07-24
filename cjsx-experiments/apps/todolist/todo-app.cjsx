@@ -1,5 +1,5 @@
-React   = require 'React'
 Todo    = require './todo/Todo'
+React   = require 'React'
 
 document.addEventListener 'DOMContentLoaded', ->
     React.render <Todo />,
