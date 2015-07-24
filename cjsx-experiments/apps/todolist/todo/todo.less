@@ -5,6 +5,8 @@
 
     box-sizing: border-box;
 
+    overflow: hidden;
+
     input {
         width: 100%;
         height: 30px;
@@ -18,10 +20,13 @@
         padding: 20px 10px;
 
         .list-item {
+            @item-height: 30px;
             @date-height: 20px;
+            @remove-btn-width: @item-height;
 
             position: relative;
 
+            height: @item-height;
             margin-bottom: @date-height;
             border-bottom: 1px solid #000;
 
@@ -31,9 +36,26 @@
 
             .name {
                 display: inline-block;
+                padding-right: @remove-btn-width;
 
                 font-size: 18px;
-                line-height: 30px;
+                line-height: @item-height;
+            }
+
+            .remove-btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                width: @remove-btn-width;
+
+                font-size: 24px;
+                font-family: monospace;
+                color: brown;
+                line-height: @item-height;
+                text-align: center;
+
+                cursor: pointer;
             }
 
             .date {

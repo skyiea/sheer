@@ -17,6 +17,10 @@ Todo = React.createClass
                 input_text  : ''
                 list        : @state.list
 
+    _removeListItem: (index) ->
+        @state.list.splice index, 1
+        @setState list: @state.list # для перезапуску render'a необхідно пропустити новий list через setState метод
+
     getInitialState: ->
         input_text  : ''
         list        : []
@@ -34,9 +38,11 @@ Todo = React.createClass
                     value={@state.input_text} />
             <div className="list">
             {
-                @state.list.map (list_item, index) ->
+                @state.list.map (list_item, index) => # => на відміну від -> зберігає контекст this
                     <div key={index} className="list-item">
                         <div className="name">{list_item.value}</div>
+                        <div    className="remove-btn"
+                                onClick={=> @_removeListItem index}>X</div>
                         <div className="date">{new Date(list_item.time).toGMTString()}</div>
                     </div>
             }
