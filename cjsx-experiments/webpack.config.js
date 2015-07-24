@@ -8,7 +8,8 @@ module.exports = {
     context: app_path,
     entry: {
         outcomes: './outcomes/outcomes-app.cjsx',
-        slider  : './slider/slider-app.cjsx'
+        slider  : './slider/slider-app.cjsx',
+        todo    : './todolist/todo-app.cjsx'
     },
     output: {
         path: build_path,
